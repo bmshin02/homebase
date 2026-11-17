@@ -143,7 +143,7 @@ Implementation: call the Claude API (`claude-sonnet-5-5` for estimation and reco
 
 **Phase 0: Setup**
 - Init Next.js + TypeScript + Tailwind, Supabase project, env vars, deploy an empty app to Vercel.
-- Brand basics: name, tagline, colors, logo, fonts.
+- Brand basics: name, tagline, colors, logo, fonts. Defined in `DESIGN.md` (logo concept 3 in `docs/brand/`); wire its tokens into Tailwind/shadcn and `next/font`.
 
 **Phase 1: Landing page**
 - Landing, How it works, Become a host, FAQ. This alone is enough for the pitch presentation.
