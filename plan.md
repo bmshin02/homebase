@@ -142,8 +142,12 @@ Implementation: call the Claude API (`claude-sonnet-5-5` for estimation and reco
 ## 10. Build Phases
 
 **Phase 0: Setup**
-- Init Next.js + TypeScript + Tailwind, Supabase project, env vars, deploy an empty app to Vercel.
-- Brand basics: name, tagline, colors, logo, fonts. Defined in `DESIGN.md` (logo concept 3 in `docs/brand/`); wire its tokens into Tailwind/shadcn and `next/font`.
+- [x] Init Next.js 16 + TypeScript + Tailwind v4 + shadcn/ui.
+- [x] Brand basics: name, tagline, colors, logo, fonts. Defined in `DESIGN.md` (logo concept 3 in `docs/brand/`); tokens wired into Tailwind/shadcn (`src/app/globals.css`) and `next/font`.
+- [x] Supabase client helpers and `.env.example`.
+- [ ] Create the Supabase project and fill in `.env.local`.
+- [x] Deploy to Vercel: project `homebase`, live at https://homebase-students.vercel.app, connected to GitHub (merges to `main` deploy to production; PRs get preview URLs).
+- [ ] Add the Supabase env vars in Vercel once the project exists.
 
 **Phase 1: Landing page**
 - Landing, How it works, Become a host, FAQ. This alone is enough for the pitch presentation.

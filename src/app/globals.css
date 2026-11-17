@@ -1,0 +1,158 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * HomeBase design tokens. Source of truth: DESIGN.md.
+ * Light mode only for now (DESIGN.md: "no dark mode for now").
+ */
+
+@theme inline {
+  /* shadcn/ui semantic colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* HomeBase brand colors (use as bg-sun, text-primary-pressed, etc.) */
+  --color-primary-pressed: var(--hb-primary-pressed);
+  --color-primary-deep: var(--hb-primary-deep);
+  --color-primary-tint: var(--hb-primary-tint);
+  --color-sun: var(--hb-sun);
+  --color-sun-pressed: var(--hb-sun-pressed);
+  --color-sun-tint: var(--hb-sun-tint);
+  --color-ink: var(--hb-ink);
+  --color-surface-sunk: var(--hb-surface-sunk);
+  --color-hairline-strong: var(--hb-hairline-strong);
+  --color-success: var(--hb-success);
+  --color-success-tint: var(--hb-success-tint);
+  --color-warning: var(--hb-warning);
+  --color-warning-tint: var(--hb-warning-tint);
+  --color-error-tint: var(--hb-error-tint);
+
+  /* Fonts (loaded with next/font in src/app/layout.tsx) */
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-fredoka), var(--font-nunito), ui-sans-serif, sans-serif;
+  --font-hand: var(--font-patrick-hand), cursive;
+
+  /* Radius: --radius is 16px (cards). Buttons, chips and pills use rounded-full. */
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+  --radius-2xl: calc(var(--radius) * 2);
+  --radius-3xl: calc(var(--radius) * 2.5);
+  --radius-4xl: calc(var(--radius) * 3);
+
+  /* Elevation */
+  --shadow-float: 0 1px 0 rgb(20 50 74 / 0.04), 0 4px 14px rgb(20 50 74 / 0.08);
+  --shadow-sticker: 3px 3px 0 var(--hb-primary);
+}
+
+:root {
+  /* Brand palette */
+  --hb-primary: #0064a4;
+  --hb-primary-pressed: #004f82;
+  --hb-primary-deep: #003a61;
+  --hb-primary-tint: #e3eef7;
+  --hb-sun: #ffd100;
+  --hb-sun-pressed: #e6bc00;
+  --hb-sun-tint: #fff4bf;
+  --hb-canvas: #fdf8f0;
+  --hb-surface-sunk: #f6eedf;
+  --hb-ink: #14324a;
+  --hb-muted: #5e6b76;
+  --hb-hairline: #e8dfcf;
+  --hb-hairline-strong: #cfc3ae;
+  --hb-success: #2e7d4f;
+  --hb-success-tint: #e1f2e7;
+  --hb-warning: #9a5b00;
+  --hb-warning-tint: #fff0d6;
+  --hb-error: #c2362b;
+  --hb-error-tint: #fbe4e1;
+
+  /* shadcn/ui semantic mapping (DESIGN.md section 11) */
+  --background: var(--hb-canvas);
+  --foreground: var(--hb-ink);
+  --card: #ffffff;
+  --card-foreground: var(--hb-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--hb-ink);
+  --primary: var(--hb-primary);
+  --primary-foreground: #ffffff;
+  --secondary: var(--hb-sun-tint);
+  --secondary-foreground: var(--hb-ink);
+  --muted: var(--hb-surface-sunk);
+  --muted-foreground: var(--hb-muted);
+  --accent: var(--hb-primary-tint);
+  --accent-foreground: var(--hb-primary-pressed);
+  --destructive: var(--hb-error);
+  --border: var(--hb-hairline);
+  --input: var(--hb-hairline-strong);
+  --ring: var(--hb-primary);
+  --radius: 1rem;
+
+  --chart-1: var(--hb-primary);
+  --chart-2: var(--hb-sun);
+  --chart-3: var(--hb-primary-deep);
+  --chart-4: var(--hb-success);
+  --chart-5: var(--hb-warning);
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: var(--hb-ink);
+  --sidebar-primary: var(--hb-primary);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--hb-primary-tint);
+  --sidebar-accent-foreground: var(--hb-primary-pressed);
+  --sidebar-border: var(--hb-hairline);
+  --sidebar-ring: var(--hb-primary);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading text-primary;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}

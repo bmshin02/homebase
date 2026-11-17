@@ -10,12 +10,32 @@ HomeBase is a peer-to-peer storage marketplace ("Airbnb for storage"). College s
 
 ## Status
 
-Planning only. No app code yet. The next step is Phase 0 in `plan.md` (scaffold the app). Once it is scaffolded, add the real dev/build/test/lint commands to this file.
+Phase 0 (setup) nearly done: the app is scaffolded with the design system wired in and deployed on Vercel (https://homebase-students.vercel.app; merges to `main` auto-deploy). Still to do: create the Supabase project and add its env vars locally and in Vercel. Next is Phase 1 (landing page).
 
-## Stack (planned)
+## Commands
 
-- Next.js (App Router) + TypeScript
-- Tailwind CSS + shadcn/ui
+```bash
+npm install          # install dependencies
+npm run dev          # dev server at http://localhost:3000
+npm run build        # production build
+npm run lint         # ESLint
+npm run typecheck    # TypeScript, no emit
+```
+
+No test runner yet; add Vitest when the first real logic lands (e.g. the estimator schema). Before calling work done, run `lint`, `typecheck` and `build`.
+
+## Code layout
+
+- `src/app/`: routes (App Router). `globals.css` holds the design tokens from `DESIGN.md`; `layout.tsx` loads the fonts.
+- `src/components/ui/`: shadcn/ui components (restyled to HomeBase; `button.tsx` has the `sun` variant). Add more with `npx shadcn@latest add <name>`.
+- `src/components/brand/`: logo.
+- `src/lib/supabase/`: `client.ts` (browser) and `server.ts` (server-only) Supabase clients.
+- `.env.example`: every env var the app uses. Copy to `.env.local`.
+
+## Stack
+
+- Next.js 16 (App Router, Turbopack) + TypeScript. This version differs from older Next.js; read `node_modules/next/dist/docs/` before writing Next-specific code (see `AGENTS.md`). Middleware is now called a proxy.
+- Tailwind CSS v4 + shadcn/ui (Base UI primitives). Use tokens like `bg-primary`, `bg-sun`, `text-ink`, `bg-primary-tint`, `font-heading`, `font-hand`, `shadow-float`, never raw hex in components.
 - Supabase: Postgres, Auth, Storage
 - Stripe Connect in test mode (booking payments + platform fee)
 - Claude API for the space estimator and listing recommendations
