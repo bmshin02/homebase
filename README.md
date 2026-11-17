@@ -22,9 +22,9 @@ Every summer, students move out of their dorms with nowhere nearby to leave thei
 
 **Trust built in:** identity verification, clear storage agreements, and reviews in both directions.
 
-## Tech stack (planned)
+## Tech stack
 
-- [Next.js](https://nextjs.org/) (App Router) + TypeScript
+- [Next.js](https://nextjs.org/) 16 (App Router) + TypeScript
 - Tailwind CSS + shadcn/ui
 - Supabase (Postgres, Auth, Storage)
 - Stripe Connect (test mode) for booking payments and the platform fee
@@ -34,8 +34,16 @@ Every summer, students move out of their dorms with nowhere nearby to leave thei
 
 ## Project status
 
-Planning. No app code yet. See [`plan.md`](./plan.md) for features, the data model, build phases, and open decisions.
+Phase 0: the app is scaffolded with the HomeBase design system and live at https://homebase-students.vercel.app. See [`plan.md`](./plan.md) for features, the data model, build phases, and open decisions, and [`DESIGN.md`](./DESIGN.md) for the design system.
 
 ## Getting started
 
-Setup instructions will be added once the app is scaffolded (Phase 0 in `plan.md`).
+Requires Node.js 20.9 or newer.
+
+```bash
+npm install
+cp .env.example .env.local   # then fill in the keys you have
+npm run dev                  # http://localhost:3000
+```
+
+Other scripts: `npm run build`, `npm run lint`, `npm run typecheck`.
