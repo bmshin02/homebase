@@ -6,6 +6,7 @@ HomeBase is a peer-to-peer storage marketplace ("Airbnb for storage"). College s
 
 - `plan.md` is the source of truth for features, data model, build phases, and open decisions. Read it before starting new work and update it when scope changes.
 - `README.md` is the public overview.
+- `DESIGN.md` is the design system (colors, type, components, do's and don'ts). Follow it for all UI work. Brand reference art is in `docs/brand/`.
 
 ## Status
 
