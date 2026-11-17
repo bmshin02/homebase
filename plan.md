@@ -150,7 +150,9 @@ Implementation: call the Claude API (`claude-sonnet-5-5` for estimation and reco
 - [ ] Add the Supabase env vars in Vercel once the project exists.
 
 **Phase 1: Landing page**
-- Landing, How it works, Become a host, FAQ. This alone is enough for the pitch presentation.
+- [x] Landing (`/`), How it works (`/how-it-works`), Become a host (`/host`), FAQ (`/faq`). This alone is enough for the pitch presentation.
+- [ ] Team review of draft copy in `src/content/faq.ts` that depends on open decisions (banned items, damage/liability, launch campus).
+- [ ] Turn "Host sign-up opens soon" into a real sign-up link in Phase 2.
 
 **Phase 2: Accounts & listings**
 - Auth, profiles, roles.

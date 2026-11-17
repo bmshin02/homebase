@@ -10,7 +10,7 @@ HomeBase is a peer-to-peer storage marketplace ("Airbnb for storage"). College s
 
 ## Status
 
-Phase 0 (setup) nearly done: the app is scaffolded with the design system wired in and deployed on Vercel (https://homebase-students.vercel.app; merges to `main` auto-deploy). Still to do: create the Supabase project and add its env vars locally and in Vercel. Next is Phase 1 (landing page).
+Phase 1 (marketing pages) built: landing, how it works, become a host, FAQ. Deployed on Vercel (https://homebase-students.vercel.app; merges to `main` auto-deploy). Still open from Phase 0: create the Supabase project and add its env vars locally and in Vercel. Next is Phase 2 (accounts & listings).
 
 ## Commands
 
@@ -28,7 +28,10 @@ No test runner yet; add Vitest when the first real logic lands (e.g. the estimat
 
 - `src/app/`: routes (App Router). `globals.css` holds the design tokens from `DESIGN.md`; `layout.tsx` loads the fonts.
 - `src/components/ui/`: shadcn/ui components (restyled to HomeBase; `button.tsx` has the `sun` variant). Add more with `npx shadcn@latest add <name>`.
-- `src/components/brand/`: logo.
+- `src/app/(marketing)/`: public pages (`/`, `/how-it-works`, `/host`, `/faq`) sharing the site header and footer.
+- `src/components/brand/`: logo and hand-drawn `doodles.tsx` spot icons. `src/assets/illustrations/`: doodles cut from the logo concept art (transparent PNGs).
+- `src/components/site/`: header, footer, FAQ accordion, and marketing building blocks (`Section`, `StepCard`, `Feature`, `CtaBand`, `Highlight`, `Annotation`).
+- `src/content/faq.ts`: FAQ copy, used by `/faq` and `/host`.
 - `src/lib/supabase/`: `client.ts` (browser) and `server.ts` (server-only) Supabase clients.
 - `.env.example`: every env var the app uses. Copy to `.env.local`.
 
