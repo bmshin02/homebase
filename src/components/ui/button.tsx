@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 
 // HomeBase buttons (DESIGN.md section 4): pill-shaped, Nunito 800,
 // 48px default height, pressed state nudges down 1px. No glow.
-const buttonVariants = cva(
+const buttonCva = cva(
   "group/button inline-flex shrink-0 items-center justify-center rounded-full border border-transparent bg-clip-padding font-extrabold whitespace-nowrap transition-colors outline-none select-none focus-visible:ring-3 focus-visible:ring-primary-tint focus-visible:border-primary active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
@@ -43,12 +43,19 @@ const buttonVariants = cva(
   }
 )
 
+// cva only concatenates classes; run the result through cn (tailwind-merge)
+// so variant classes like border-primary override base ones like
+// border-transparent even when used directly on links.
+function buttonVariants(...args: Parameters<typeof buttonCva>) {
+  return cn(buttonCva(...args))
+}
+
 function Button({
   className,
   variant = "default",
   size = "default",
   ...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+}: ButtonPrimitive.Props & VariantProps<typeof buttonCva>) {
   return (
     <ButtonPrimitive
       data-slot="button"
